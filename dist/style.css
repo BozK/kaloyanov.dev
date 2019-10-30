@@ -1,82 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
-.text-js {
-  opacity: 0;
-}
-
-.cursor {
-  display: block;
-  position: absolute;
-  height: 100%;
-  top: 0;
-  right: -5px;
-  width: 2px;
-  /* Change colour of Cursor Here */
-  background-color: white;
-  z-index: 1;
-  -webkit-animation: flash 0.5s none infinite alternate;
-          animation: flash 0.5s none infinite alternate;
-}
-
-@-webkit-keyframes flash {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes flash {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-* {
-  margin: 0;
-  padding: 0;
-  boz-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-}
-
+/* CSS files add styling rules to your content */
+html,
 body {
-  background: linear-gradient(135deg, #00C4FF, #9D1BB2);
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
 }
 
-.headline {
-  margin: 20px;
-  color: white;
-  font-size: 32px;
-  text-align: center;
-}
-.headline h1 {
-  letter-spacing: 1.6px;
-  font-weight: 300;
+* {
+  font-family: 'Overpass Mono', monospace;
 }
 
-.twitterLink {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 10px 15px;
-  z-index: 3;
-}
-.twitterLink svg {
-  width: 25px;
+/* Example of Tachyons Philosophy */
+.mw-custom {
+  min-width: 3rem;
 }
 
-.credit {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  color: white;
-  text-decoration: none;
+@media (max-width: 480px) {
+  .mw-custom {
+    min-width: 2rem;
+  }
 }

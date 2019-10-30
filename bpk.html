@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Boz Kaloyanov</title>
+    <title>Bozzie</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="Description" content="A site from Boz to you!" />
-    <meta name="Keywords" content="developer, code, boz, ncsu, graduate" />
-
     <!-- import styling resources -->
     <link
       href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap"
@@ -20,15 +17,14 @@
     <link rel="stylesheet" href="/style.css" />
 
     <!-- import javascript resources -->
-    <!--   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/script.js" defer></script>
   </head>
   <body>
     <main id="app" class="vh-100 dt w-100 bg-washed-red">
       <div class="dtc v-mid tc ph3 ph4-l">
         <div class="mw9 center ph3-ns">
-          <div class="cf ph2-ns" style="height:600px">
+          <div class="cf ph2-ns">
             <!--          Left Column       -->
             <div class="fl w-60-l w-100-m w-100 pa2">
               <div class="outline bg-white pv4 ph3" id="Left column">
@@ -37,7 +33,7 @@
               </div>
             </div>
             <!--          Middle Column      -->
-            <div class="fl w-30-l w-60-m w-100 pa2 mt5-l">
+            <div class="fl w-30-l w-60-m w-100 pa2">
               <div class="outline bg-white pv4" id="Middle column">
                 <div class="mw6 center">
                   <article
@@ -48,7 +44,6 @@
                   >
                     <div class="dtc w2 w3-ns v-mid">
                       <img
-                        style="object-fit: cover;"
                         :src="item.img"
                         class="ba b--black-10 db br-100 w2 w3-ns mw-custom h2 h3-ns"
                       />
@@ -64,7 +59,7 @@
               </div>
             </div>
             <!-- Third Column  -->
-            <div class="fl w-10-l w-20-m w-100 pa2 mt5-l">
+            <div class="fl w-10-l w-20-m w-100 pa2">
               <div class="outline bg-white pv4" id="Right column">
                 <!-- SVG Icons are from https://simpleicons.org -->
                 <div class="ml-auto mr-auto">
@@ -72,13 +67,13 @@
                     class="link near-black hover-silver dib h2 w2 ma3"
                     v-for="item in icons"
                     :key="item.title"
-                    @click="delay(item.url)"
+                    :href="item.url"
                     :title="item.title"
                   >
                     <svg
                       fill="currentColor"
                       xmlns="https://www.w3.org/2000/svg"
-                      viewbox="0 0 16 16"
+                      viewBox="0 0 16 16"
                       fill-rule="evenodd"
                       clip-rule="evenodd"
                       stroke-linejoin="round"
@@ -89,16 +84,49 @@
                   </a>
                 </div>
                 <div class="mt4 ph1">
-                  <a
-                    class="f6 link dim gray dib"
-                    href="mailto:boz@kaloyanov.dev?subject=Hi Boz!&"
-                    >Contact Me</a
-                  >
+                  <a href="#" class="f6 link dim gray dib"> Contact Me</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!--         <h1 class="f6 f2-m f-subheadline-l fw6 tc">
+          Vertically centering things in css is easy!
+          <div>
+            <div class="pa3 pa5-ns">
+              <h4 class="f6 fw6">Glossary</h4>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">W:</dt>
+                <dd class="dib ml0 gray">Wins</dd>
+              </dl>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">L:</dt>
+                <dd class="dib ml0 gray">Losses</dd>
+              </dl>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">PCT:</dt>
+                <dd class="dib ml0 gray">Winning Percentages</dd>
+              </dl>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">GB:</dt>
+                <dd class="dib ml0 gray">Games Back</dd>
+              </dl>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">Home:</dt>
+                <dd class="dib ml0 gray">Home Record</dd>
+              </dl>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">Road:</dt>
+                <dd class="dib ml0 gray">Road Record</dd>
+              </dl>
+              <dl class="f6 lh-title mv2">
+                <dt class="dib b">Div:</dt>
+                <dd class="dib ml0 gray">Division Record</dd>
+              </dl>
+            </div>
+          </div>
+        </h1> -->
       </div>
     </main>
   </body>
