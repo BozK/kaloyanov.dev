@@ -1,0 +1,7 @@
+# Redirects for convenience
+
+# Redirect default Netlify subdomain to primary domain
+https://boz.netlify.com/* https://kaloyanov.dev/:splat 301!
+
+#/r             /resume
+#/p             /projects

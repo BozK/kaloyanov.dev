@@ -1,12 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Header Info -->
     <title>Boz Kaloyanov</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="Description" content="A site from Boz to you!" />
     <meta name="Keywords" content="developer, code, boz, ncsu, graduate" />
+
+    <!-- Search Engines -->
+    <meta
+      name="description"
+      content="Personal website built by Boz Kaloyanov"
+    />
+    <meta name="image" content="https://kaloyanov.dev/assets/profile.jpeg" />
+    <!-- Schema.org for Google -->
+    <meta itemprop="name" content="Boz Kaloyanov" />
+    <meta
+      itemprop="description"
+      content="Personal website built by Boz Kaloyanov"
+    />
+    <meta
+      itemprop="image"
+      content="https://kaloyanov.dev/assets/profile.jpeg"
+    />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Boz Kaloyanov" />
+    <meta
+      name="twitter:description"
+      content="Personal website built by Boz Kaloyanov"
+    />
+    <meta name="twitter:site" content="@skeuomorphist_" />
+    <meta name="twitter:creator" content="@skeuomorphist_" />
+    <meta
+      name="twitter:image:src"
+      content="https://kaloyanov.dev/assets/profile.jpeg"
+    />
+    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+    <meta name="og:title" content="Boz Kaloyanov" />
+    <meta
+      name="og:description"
+      content="Personal website built by Boz Kaloyanov"
+    />
+    <meta
+      name="og:image"
+      content="https://secure.gravatar.com/avatar/f51d027fb674bba15df8fbe8451d7d23"
+    />
+    <meta name="og:url" content="https://kaloyanov.dev" />
+    <meta name="og:site_name" content="Boz Kaloyanov" />
+    <meta name="og:type" content="website" />
 
     <!-- import styling resources -->
     <link
@@ -19,9 +63,9 @@
     />
     <link rel="stylesheet" href="/style.css" />
 
-    <!-- import javascript resources -->
-    <!--   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <!-- import javascript resources (dev or prod) -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script> -->
     <script src="/script.js" defer></script>
   </head>
   <body>
@@ -33,7 +77,42 @@
             <div class="fl w-60-l w-100-m w-100 pa2">
               <div class="outline bg-white pv4 ph3" id="Left column">
                 <h1 class="mb3 mt0 lh-title">Hi, my name is Boz</h1>
-                <time class="f6 ttu tracked gray">Yeet</time>
+                <time class="f6 ttu i tracked gray"
+                  >"A good programmer looks both ways before crossing a one-way
+                  street."</time
+                >
+              </div>
+            </div>
+            <!--          Second Left Column      -->
+            <div v-if="contentTitle" class="fl w-60-l w-100-m w-100 pa2">
+              <div class="outline bg-white pv4" id="Second Left column">
+                <h1 class="mb3 mt0 lh-title">{{ contentTitle }}</h1>
+                <div class="f1 mw6 center">
+                  ...<br />
+                  ...
+                </div>
+                <div v-if="false" class="mw6 center">
+                  <a
+                    class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link"
+                    :href="item.url"
+                    v-for="item in sections"
+                    :key="item.title"
+                  >
+                    <div class="dtc w2 w3-ns v-mid">
+                      <img
+                        style="object-fit: cover;"
+                        :src="item.img"
+                        class="ba b--black-10 db br-100 w2 w3-ns mw-custom h2 h3-ns"
+                      />
+                    </div>
+                    <div class="dtc v-mid pl4 tl">
+                      <h1 class="f6 f5-ns fw6 lh-title black mv0">
+                        {{item.title}}
+                      </h1>
+                      <h2 class="f6 fw4 mt0 mb0 black-60">@{{item.tag}}</h2>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             <!--          Middle Column      -->
@@ -41,8 +120,8 @@
               <div class="outline bg-white pv4" id="Middle column">
                 <div class="mw6 center">
                   <article
-                    class="dt w-100 bb b--black-05 pb2 ph4 mt2"
-                    href="#0"
+                    class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link"
+                    @click="applyChange(item.conf)"
                     v-for="item in sections"
                     :key="item.title"
                   >
@@ -69,7 +148,7 @@
                 <!-- SVG Icons are from https://simpleicons.org -->
                 <div class="ml-auto mr-auto">
                   <a
-                    class="link near-black hover-silver dib h2 w2 ma3"
+                    class="link near-black hover-silver dib h2 w2 ma3 pointer"
                     v-for="item in icons"
                     :key="item.title"
                     @click="delay(item.url)"
