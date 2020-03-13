@@ -2,66 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- HER -->
-  <!--
-                    `:/+/`
-                  .+hhhhds:
-                 :yyysooshy-
-                :sssooo++oy:
-               .+soooo++/+s+                 `.```
-              `:osoo++////o-             .:/oyhhhy`
-              `+sso++/////o`          `-+oosssydh+
-              .+ss++///::::          .+++oossyy+.
-              -oso++///::/          -:/+oosss/.
-              -oso++///:o`        `://+osso/.
-              -oso++//:o:        .///+oo+:`
-              ./so++/:oo        .//++oo/.
-              `:oo+/:oy-       .:+/oo+-
-              `/+o/:+yo`````  ./+/os/`
-               :++:/so+/+oso+//oo/s:`
-               ./++o++oo+//+ooooos+
-               .://sysyyyyo+ssssooo:
-               .://o/yddo+yosssyyyhy.
-             `-:/++++shho+sosyyhh+:ho
-             ./+oo+++oss+/+osssmms-+/
-              -osso//::/:::+osssyssyo`
-               -+sso+///++osysoosyyys`
-                 ./syoooossssssssyys:
-                   .oysssyyyhsoo+/-`
-                   `+ssssyydmy+-`
-                    :syysyyhhdmds:`
-                   -:/oshdhddmmhys+-
-                   .-//+ohddddmmddhy+.
-                   ://///oyhdmmmmNdmdh+.
-                   `:////+//+odmdhyhmmy+:
-                     .:////+++oymmhdmho+/`
-                       /s+/+++osddh--.``
-                        /ooosyyhhhs
-                   :s+`  :osyyhhyyy`
-                  -yddo.-+oosyyyyyyo.
-                  /hhosyhhhyyysysssyd+`
-                  :y+ohmmdhdddhyyyyhNmy`
-                  `-+hmmhhhyddmmmhhdNNm/
-                   -sdmmhydyddmmmhhmNmo`
-                  `/syhdyhddddddmdddmd`
-                  -oyyhddmmmmddddddddm+
-                  /syhhhddddddddddddddd`
-                 `+yyhhhhddmdmmmmdmdddd/
-                 -syyhhhddmdomNmmmmmdddy
-                 /yyhhdddmy. .ymmmmmdddd.
-                 oyhhdmmmo`    ommmmdddd:
-                .yhdmmNm/       :dmmmmddo`
-                -+shmNd-         -dmmmmo//
-                ///ohd-           .hmmmss+
-                osydy.             .hmmmh.
-               .hdms                `hmmd.
-               sdms                  .hmmo
-              -dmh`                   .hmd.
-             .sdm.                     .ddh:`
-         ``.-+ydh`                      smdhs+:://::::-.`
-      -:/o+ooyhhs                       shhhhhddhsoo+///:.
-    `:-:////++/`                               ```````...`
-      -->
 
   <!-- Header Info -->
   <title>Boz Kaloyanov</title>
@@ -109,16 +49,35 @@
     <div class="dtc v-mid tc ph3 ph4-l">
       <div class="mw9 center ph3-ns">
         <div class="cf ph2-ns" style="height:600px">
-          <!--          Left Column       -->
-          <div class="fl w-60-l w-100-m w-100 pa2">
+          <!--          Top Bar       -->
+          <div class="fr w-80-ns w-100 pa2">
             <div class="outline bg-white pv4 ph3" id="Left column">
               <h1 class="mb3 mt0 lh-title">Hi, my name is Boz</h1>
-              <time class="f6 ttu i tracked gray">"A good programmer looks both ways before crossing a one-way
-                street."</time>
+              <time class="f6 ttu i tracked gray">"I'll fill this with a good quote sometime"</time>
             </div>
           </div>
-          <!--          Second Left Column      -->
-          <div v-if="contentTitle" class="fl w-60-l w-100-m w-100 pa2">
+          <!--          Middle Column      -->
+          <div class="fl w-40-l w-40-m w-100 pa2">
+            <div class="outline bg-white pv4" id="Middle column">
+              <div class="mw6 center">
+                <article class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link" @click="applyChange(item.conf)"
+                  v-for="item in sections" :key="item.title">
+                  <div class="dtc w2 w3-ns v-mid">
+                    <img style="object-fit: cover;" :src="item.img"
+                      class="ba b--black-10 db br-100 w2 w3-ns mw-custom h2 h3-ns" />
+                  </div>
+                  <div class="dtc v-mid pl4 tl">
+                    <h1 class="f6 f5-ns fw6 lh-title black mv0">
+                      {{item.title}}
+                    </h1>
+                    <h2 class="f6 fw4 mt0 mb0 black-60">@{{item.tag}}</h2>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <!--          Column with my stuff in it      -->
+          <div v-if="contentTitle" class="fl w-60-l w-60-m w-100 pa2">
             <div class="outline bg-white pv4" id="Second Left column">
               <h1 class="mb3 mt0 lh-title">{{ contentTitle }}</h1>
               <div class="f1 mw6 center">
@@ -142,28 +101,8 @@
               </div>
             </div>
           </div>
-          <!--          Middle Column      -->
-          <div class="fl w-30-l w-60-m w-100 pa2 mt5-l">
-            <div class="outline bg-white pv4" id="Middle column">
-              <div class="mw6 center">
-                <article class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link" @click="applyChange(item.conf)"
-                  v-for="item in sections" :key="item.title">
-                  <div class="dtc w2 w3-ns v-mid">
-                    <img style="object-fit: cover;" :src="item.img"
-                      class="ba b--black-10 db br-100 w2 w3-ns mw-custom h2 h3-ns" />
-                  </div>
-                  <div class="dtc v-mid pl4 tl">
-                    <h1 class="f6 f5-ns fw6 lh-title black mv0">
-                      {{item.title}}
-                    </h1>
-                    <h2 class="f6 fw4 mt0 mb0 black-60">@{{item.tag}}</h2>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-          <!-- Third Column  -->
-          <div class="fl w-10-l w-20-m w-100 pa2 mt5-l">
+          <!-- Contact Column  -->
+          <div class="fl w-40-ns w-100 pa2">
             <div class="outline bg-white pv4" id="Right column">
               <!-- SVG Icons are from https://simpleicons.org -->
               <div class="ml-auto mr-auto">
@@ -176,7 +115,7 @@
                 </a>
               </div>
               <div class="mt4 ph1">
-                <a class="f6 link dim gray dib" href="mailto:boz@kaloyanov.dev?subject=Hi Boz!&">Contact Me</a>
+                <a class="f6 link dim gray dib" href="mailto:boz@kaloyanov.dev?subject=Hi Boz!&">Email Me</a>
               </div>
             </div>
           </div>
