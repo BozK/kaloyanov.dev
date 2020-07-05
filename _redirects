@@ -3,5 +3,8 @@
 # Redirect default Netlify subdomain to primary domain
 https://boz.netlify.com/* https://kaloyanov.dev/:splat 301!
 
+# Snipl service (static files)
+/*             https://snipl.cloud/boz/:splat  200
+
 #/r             /resume
 #/p             /projects
