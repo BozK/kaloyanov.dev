@@ -8,6 +8,6 @@
 # npm run build
 
 # Redirects
-# cp ./_redirects ./public
+cp ./_redirects ./dist
 
 echo "Build Complete :)"
