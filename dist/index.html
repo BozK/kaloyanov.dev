@@ -35,6 +35,7 @@
   <!-- import styling resources -->
   <link href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tachyons@4.11.1/css/tachyons.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css"/>
   <link rel="stylesheet" href="/style.css" />
 
   <!-- import javascript resources (dev or prod) -->
@@ -45,43 +46,71 @@
 
 <body>
   <main id="app" class="vh-100 dt w-100 bg-washed-red">
-    <div class="dtc v-mid tc ph3 ph4-l">
+    <div class="dtc v-mid tc ph3 ph5-l w-60">
       <div class="mw9 center ph3-ns ph5-l">
         <div class="cf ph2-ns" style="height:600px">
           <!--          Top Bar       -->
           <div class="fr w-80-ns w-100 pa2">
             <div class="outline bg-white pv4 ph3" id="Left column">
-              <h1 class="mb3 mt0 lh-title">Hi, my name is Boz</h1>
-              <time class="f6 ttu i tracked gray">This site is 'under development' until I figure out what I want on here :)</time>
+              <h2 class="mb3 mt0 lh-title">Hi, my name is Boz</h2>
+              <time class="f6 ttu i tracked gray">I'm not a web dev so this site is kinda chaotic for now :^)</time>
             </div>
           </div>
-          <!--          Middle Column      -->
+          <!--          Left Menu Column      -->
           <div class="fl w-40-l w-40-m w-100 pa2">
-            <div class="outline bg-white pv4" id="Middle column">
+            <div class="outline bg-white pv4 mb3" id="Middle column">
               <div class="mw6 center">
-                <article class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link" @click="applyChange(item.conf)"
+                <article class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link" @click="applyChange(item.conf, item.id)"
                   v-for="item in sections" :key="item.title">
                   <div class="dtc w2 w3-ns v-mid">
                     <img style="object-fit: cover;" :src="item.img"
                       class="ba b--black-10 db br-100 w2 w3-ns mw-custom h2 h3-ns" />
                   </div>
                   <div class="dtc v-mid pl4 tl">
-                    <h1 class="f6 f5-ns fw6 lh-title black mv0">
+                    <h3 class="f5 fw5 lh-title black mv0">
                       {{item.title}}
-                    </h1>
+                    </h3>
                     <h2 class="f6 fw4 mt0 mb0 black-60">{{item.tag}}</h2>
                   </div>
                 </article>
               </div>
             </div>
+            <div class="outline bg-white pv4" id="Right column">
+              <!-- SVG Icons are from https://simpleicons.org -->
+              <div class="ml-auto mr-auto">
+                <a class="link near-black hover-silver dib h2 w2 ma3 pointer" v-for="item in icons" :key="item.title"
+                  @click="delay(item.url)" :title="item.title">
+                  <svg fill="currentColor" xmlns="https://www.w3.org/2000/svg" viewbox="0 0 16 16" fill-rule="evenodd"
+                    clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
+                    <path :d="item.path" />
+                  </svg>
+                </a>
+              </div>
+              <div class="mt4 ph1">
+                <a class="f6 link dim gray dib" href="mailto:boz@kaloyanov.dev?subject=Hi Boz!&">Email Me</a>
+              </div>
+            </div>
           </div>
-          <!--          Column with my stuff in it      -->
+          <!--          "CONTENT" box      -->
           <div v-if="contentTitle" class="fl w-60-l w-60-m w-100 pa2">
             <div class="outline bg-white pv4" id="Second Left column">
-              <h1 class="mb3 mt0 lh-title">{{ contentTitle }}</h1>
-              <div class="f1 mw6 center">
-                ...<br />
-                ...
+              <h3 class="mb3 mt0 lh-title">{{ contentTitle }}</h3>
+              <div class="f1 mw6 tl pl2">
+                <!--Tech section-->
+                <div v-if="this.id === 0">
+                  <p class="f6 i tracked gray">TODO</p>
+                </div>
+                <!--Readings section-->
+                <div v-else-if="this.id === 1">
+                  <div class="f5 tracked-tight gray" v-for="(item, i) in books" :key="i"> {{item.title}}
+                    <p class="f6 i tracked gray">{{item.author}}</p>
+                  </div>
+                </div>
+                <!--Resume section-->
+                <div v-else-if="this.id === 2" class="f6 tl i tracked gray">under construction (I am lazy and do not want to update my resume)</div>
+
+                
+
               </div>
               <div v-if="false" class="mw6 center">
                 <a class="dt w-100 bb b--black-05 pb2 ph4 mt2 dim pointer link" :href="item.url"
@@ -102,21 +131,7 @@
           </div>
           <!-- Contact Column  -->
           <div class="fl w-40-ns w-100 pa2">
-            <div class="outline bg-white pv4" id="Right column">
-              <!-- SVG Icons are from https://simpleicons.org -->
-              <div class="ml-auto mr-auto">
-                <a class="link near-black hover-silver dib h2 w2 ma3 pointer" v-for="item in icons" :key="item.title"
-                  @click="delay(item.url)" :title="item.title">
-                  <svg fill="currentColor" xmlns="https://www.w3.org/2000/svg" viewbox="0 0 16 16" fill-rule="evenodd"
-                    clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
-                    <path :d="item.path" />
-                  </svg>
-                </a>
-              </div>
-              <div class="mt4 ph1">
-                <a class="f6 link dim gray dib" href="mailto:boz@kaloyanov.dev?subject=Hi Boz!&">Email Me</a>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

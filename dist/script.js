@@ -1,25 +1,33 @@
+//this uses to store articles and books and such https://snipl.io/
+//TODO https://www.getpapercss.com/docs/
+
 var app = new Vue({
   el: '#app',
   data: {
     contentTitle: '',
+    books: null,
+    articles: null,
     sections: [
       {
         img: '/assets/profile.jpg',
-        title: 'Projects',
-        conf: ['My Coder Things'],
-        tag: 'python'
+        title: 'Neat Tech',
+        conf: ['Various software I find useful'],
+        tag: '',
+        id: 0
       },
       {
         img: '/assets/technician.jpg',
-        title: 'Articles',
-        conf: ['Recent Writings'],
-        tag: 'technician'
+        title: 'Things I\'ve Been Reading',
+        conf: ['Articles & Books'],
+        tag: '',
+        id: 1
       },
       {
         img: '/assets/wack.jpg',
         title: 'Resume',
         conf: ['My Deeeetails'],
-        tag: 'me'
+        tag: '',
+        id: 2
       }
     ],
     icons: [
@@ -46,8 +54,10 @@ var app = new Vue({
     ]
   },
   methods: {
-    applyChange (conf) {
+    applyChange (conf, id) {
       this.contentTitle = conf[0]
+      this.id = id
+      
     },
     delay (x) {
       setTimeout(() => {
@@ -55,5 +65,12 @@ var app = new Vue({
       }, 500)
     }
   },
-  created () {}
+  async created () {
+    let result = await fetch('https://kaloyanov.dev/daata')
+    let j = await result.json()
+    this.books = j.books
+    this.articles = j.articles
+    
+    //.then(x => x.json()).then(console.log)
+  }
 })
